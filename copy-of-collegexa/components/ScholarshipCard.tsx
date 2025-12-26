@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { memo } from 'react';
 import { DeadlineIcon } from './icons/DeadlineIcon';
 import { GpaIcon } from './icons/GpaIcon';
 import { MaterialsIcon } from './icons/MaterialsIcon';
@@ -10,103 +9,74 @@ interface ScholarshipCardProps extends Scholarship {
   onViewMore: (scholarship: Scholarship) => void;
 }
 
-const effortColors = {
-  'Quick Apply': 'border-green-400/50 text-green-300 bg-green-900/30 shadow-[0_0_10px_rgba(74,222,128,0.1)]',
-  'Medium Effort': 'border-yellow-400/50 text-yellow-300 bg-yellow-900/30 shadow-[0_0_10px_rgba(250,204,21,0.1)]',
-  'In-Depth Portfolio': 'border-red-400/50 text-red-300 bg-red-900/30 shadow-[0_0_10px_rgba(248,113,113,0.1)]',
-};
-
-const fieldColors = {
-  Any: 'border-purple-400/50 text-purple-300 bg-purple-900/30',
-  STEM: 'border-blue-400/50 text-blue-300 bg-blue-900/30',
-  Humanities: 'border-pink-400/50 text-pink-300 bg-pink-900/30',
-  Arts: 'border-orange-400/50 text-orange-300 bg-orange-900/30',
-  Business: 'border-indigo-400/50 text-indigo-300 bg-indigo-900/30',
+const EFFORT_THEMES = {
+  'Quick Apply': 'border-green-500/30 text-green-400 bg-green-500/5',
+  'Medium Effort': 'border-yellow-500/30 text-yellow-400 bg-yellow-500/5',
+  'In-Depth Portfolio': 'border-red-500/30 text-red-400 bg-red-500/5',
 };
 
 const ScholarshipCard: React.FC<ScholarshipCardProps> = (props) => {
-  const { onViewMore, ...scholarshipData } = props;
-  const isDeadlinePassed = new Date(props.deadline) < new Date();
-  
-  const displayedEligibility = props.eligibility.slice(0, 3);
-  const remainingEligibilityCount = props.eligibility.length - displayedEligibility.length;
+  const { onViewMore, ...data } = props;
+  const isExpired = new Date(props.deadline) < new Date();
 
   return (
     <div 
-      onClick={() => onViewMore(scholarshipData as Scholarship)}
-      className="block relative bg-[#13111C]/60 backdrop-blur-md border border-purple-500/30 rounded-2xl p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 hover:border-purple-400/60 shadow-[0_0_15px_rgba(139,92,246,0.1)] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
+      onClick={() => onViewMore(data as Scholarship)}
+      className="group relative bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-purple-500/40 cursor-pointer overflow-hidden"
     >
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Left Side */}
-        <div className="flex-grow">
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">{props.title}</h3>
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${effortColors[props.effort]}`}>
-              {props.effort}
-            </span>
-            <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${fieldColors[props.field] || 'border-gray-400 text-gray-300 bg-gray-900/50'}`}>
-              {props.field}
-            </span>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/5 blur-[60px] rounded-full pointer-events-none group-hover:bg-purple-600/10 transition-colors"></div>
+      
+      <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
+        <div className="flex-grow space-y-4">
+          <div>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border ${EFFORT_THEMES[props.effort as keyof typeof EFFORT_THEMES] || 'border-white/20 text-white/60 bg-white/5'}`}>
+                {props.effort}
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border border-purple-500/20 text-purple-300 bg-purple-500/5">
+                {props.field}
+              </span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-black text-white leading-tight group-hover:text-purple-300 transition-colors">{props.title}</h3>
           </div>
 
-          <p className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">
-            ${props.amount.toLocaleString()}
-          </p>
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-black bg-gradient-to-br from-white to-purple-200 bg-clip-text text-transparent">${props.amount.toLocaleString()}</span>
+            <span className="text-xs font-bold text-purple-300/40 uppercase tracking-widest">Award Amount</span>
+          </div>
 
-          <div className="mb-4">
-            <p className="text-sm font-semibold text-purple-200/80 mb-2">Eligibility:</p>
-            <div className="flex flex-wrap gap-2 items-center">
-              {displayedEligibility.map((item, i) => (
-                <span key={i} className="text-xs px-3 py-1 bg-white/5 border border-white/10 rounded-full text-purple-200/70">{item}</span>
-              ))}
-              {remainingEligibilityCount > 0 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onViewMore(scholarshipData as Scholarship);
-                  }}
-                  className="text-xs font-medium px-3 py-1 bg-purple-900/50 border border-purple-500/30 rounded-full text-purple-300 hover:bg-purple-900/80 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 z-10"
-                >
-                  +{remainingEligibilityCount} more
-                </button>
-              )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <p className="text-[10px] font-bold text-purple-300/30 uppercase tracking-widest mb-1">Key Eligibility</p>
+              <p className="text-sm text-white/70 line-clamp-1">{props.eligibility[0]}</p>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold text-purple-300/30 uppercase tracking-widest mb-1">Materials</p>
+              <div className="flex flex-wrap gap-1">
+                {props.materials.slice(0, 2).map((m, i) => (
+                    <span key={i} className="text-[10px] font-bold text-cyan-400 bg-cyan-400/5 border border-cyan-400/10 px-1.5 rounded">{m}</span>
+                ))}
+                {props.materials.length > 2 && <span className="text-[10px] text-white/30">+{props.materials.length - 2} more</span>}
+              </div>
             </div>
           </div>
 
-          <div className="mb-4">
-              <p className="flex items-center gap-2 text-sm font-semibold text-purple-200/80 mb-2">
-                  <MaterialsIcon className="w-4 h-4" />
-                  Required Materials:
-              </p>
-              <div className="flex flex-wrap gap-2">
-                  {props.materials.map((item, i) => (
-                  <span key={i} className="text-xs px-3 py-1 bg-blue-900/30 border border-blue-500/30 rounded-full text-blue-300">{item}</span>
-                  ))}
-              </div>
+          <div className="flex items-center gap-3 p-3 bg-yellow-500/[0.03] border border-yellow-500/10 rounded-xl group-hover:bg-yellow-500/[0.06] transition-colors">
+            <InsiderTipIcon className="w-4 h-4 text-yellow-500/70 flex-shrink-0" />
+            <p className="text-xs text-yellow-200/60 font-medium italic line-clamp-1">{props.applicationTip}</p>
           </div>
-
-          <div className="bg-yellow-900/20 border border-yellow-500/20 rounded-lg p-3 text-xs shadow-inner shadow-black/20">
-              <div className="flex items-center gap-2 font-semibold text-yellow-300 mb-1 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]">
-                  <InsiderTipIcon className="w-4 h-4"/>
-                  Application Tip
-              </div>
-              <p className="text-yellow-200/70">{props.applicationTip}</p>
-          </div>
-
         </div>
 
-        {/* Right Side */}
-        <div className="flex-shrink-0 w-full md:w-48 space-y-4">
-          <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center h-full flex flex-col justify-center shadow-inner shadow-black/10">
-              <DeadlineIcon className="w-6 h-6 mx-auto text-purple-300 mb-2"/>
-              <p className="text-xs text-purple-300/80">Deadline</p>
-              <p className="text-base font-bold text-white">{props.deadline}</p>
-              {isDeadlinePassed && <p className="text-xs text-red-400 mt-1">Deadline passed</p>}
+        <div className="flex-shrink-0 w-full md:w-40 grid grid-cols-2 md:grid-cols-1 gap-3">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center group-hover:border-purple-500/20 transition-all">
+            <DeadlineIcon className="w-5 h-5 mx-auto text-purple-400 mb-1" />
+            <p className="text-[10px] font-bold text-purple-300/40 uppercase mb-0.5">Deadline</p>
+            <p className={`text-sm font-black ${isExpired ? 'text-red-400' : 'text-white'}`}>{props.deadline}</p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-lg p-4 text-center h-full flex flex-col justify-center shadow-inner shadow-black/10">
-              <GpaIcon className="w-6 h-6 mx-auto text-purple-300 mb-2"/>
-              <p className="text-xs text-purple-300/80">Min. GPA</p>
-              <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent">{props.minGPA.toFixed(1)}</p>
+          <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center group-hover:border-purple-500/20 transition-all">
+            <GpaIcon className="w-5 h-5 mx-auto text-purple-400 mb-1" />
+            <p className="text-[10px] font-bold text-purple-300/40 uppercase mb-0.5">Min. GPA</p>
+            <p className="text-xl font-black text-white">{props.minGPA.toFixed(1)}</p>
           </div>
         </div>
       </div>
@@ -114,4 +84,4 @@ const ScholarshipCard: React.FC<ScholarshipCardProps> = (props) => {
   );
 };
 
-export default ScholarshipCard;
+export default memo(ScholarshipCard);
