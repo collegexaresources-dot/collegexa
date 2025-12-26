@@ -4,107 +4,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CollegeXa</title>
+    <title>CollegeXa | The Student Success Standard</title>
+    <meta name="description" content="Unlock your academic potential with CollegeXa. Discover passion projects, scholarships, and research mentors tailored for ambitious students." />
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CollegeXa | The Student Success Standard" />
+    <meta property="og:description" content="Empowering the next generation of leaders through innovative tools and curated academic resources." />
+    
+    <!-- Performance: Preconnect to CDNs -->
+    <link rel="preconnect" href="https://aistudiocdn.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-      :root {
-        --bg-color: #0d0b21;
-      }
-      html {
-        background-color: var(--bg-color);
-        scrollbar-gutter: stable;
-      }
-      body {
-        font-family: 'Calibri', 'Candara', 'Segoe UI', 'Optima', 'Arial', sans-serif;
-        overscroll-behavior-y: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background-color: var(--bg-color);
-        /* Critical for preventing white line flickers during GPU composite */
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-      }
-      .article-font {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0f0c29; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #7c3aed; 
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #6d28d9; 
-      }
-
-      @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-        will-change: transform;
-      }
-
-      @keyframes glow {
-        0%, 100% { box-shadow: 0 0 8px rgba(168, 85, 247, 0.4), 0 0 16px rgba(168, 85, 247, 0.2); }
-        50% { box-shadow: 0 0 16px rgba(217, 70, 239, 0.6), 0 0 32px rgba(217, 70, 239, 0.4); }
-      }
-      .animate-glow {
-        animation: glow 4s ease-in-out infinite;
-      }
-
-      @keyframes blob {
-        0% { transform: translate(0px, 0px) scale(1); }
-        33% { transform: translate(30px, -50px) scale(1.1); }
-        66% { transform: translate(-20px, 20px) scale(0.9); }
-        100% { transform: translate(0px, 0px) scale(1); }
-      }
-      .animate-blob {
-        animation: blob 10s infinite;
-        will-change: transform;
-      }
-      .animation-delay-2000 { animation-delay: 2s; }
-      .animation-delay-4000 { animation-delay: 4s; }
-
-      /* Optimization: Containment prevents global repaints on animated blobs */
-      .bg-layer {
-        position: fixed;
-        inset: 0;
-        z-index: -50;
-        pointer-events: none;
-        contain: strict;
-        transform: translate3d(0, 0, 0);
-      }
+      :root{--bg-color:#030712}
+      html{background-color:var(--bg-color);scrollbar-gutter:stable;scroll-behavior:smooth}
+      body{font-family:'Calibri','Candara','Segoe UI',Optima,Arial,sans-serif;overscroll-behavior-y:none;-webkit-font-smoothing:antialiased;background-color:var(--bg-color);transform:translate3d(0,0,0);backface-visibility:hidden}
+      .article-font{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+      ::-webkit-scrollbar{width:8px}
+      ::-webkit-scrollbar-track{background:#030712}
+      ::-webkit-scrollbar-thumb{background:#4c1d95;border-radius:10px}
+      ::-webkit-scrollbar-thumb:hover{background:#6d28d9}
+      @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+      .animate-float{animation:float 6s ease-in-out infinite;will-change:transform}
+      @keyframes glow{0%,100%{box-shadow:0 0 10px rgba(168,85,247,0.2)}50%{box-shadow:0 0 25px rgba(168,85,247,0.5)}}
+      .animate-glow{animation:glow 4s ease-in-out infinite}
+      @keyframes blob{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-50px) scale(1.1)}66%{transform:translate(-20px,20px) scale(0.9)}100%{transform:translate(0,0) scale(1)}}
+      .animate-blob{animation:blob 10s infinite;will-change:transform}
+      .bg-layer{position:fixed;inset:0;z-index:-50;pointer-events:none;contain:strict;transform:translate3d(0,0,0)}
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body class="text-white relative min-h-screen selection:bg-purple-500 selection:text-white">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1"
+      }
+    }
+    </script>
+  </head>
+  <body class="text-white relative min-h-screen selection:bg-purple-600 selection:text-white">
     <div class="bg-layer">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#160d2b] via-[#0d0b21] to-[#0a1128]"></div>
-        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#4c1d95]/15 rounded-full blur-[120px] animate-blob"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#1e3a8a]/15 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-        <div class="absolute top-[30%] left-[20%] w-[50%] h-[50%] bg-[#5b21b6]/10 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#0f0720] via-[#030712] to-[#010409]"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-[#4c1d95]/10 rounded-full blur-[120px] animate-blob"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#1e3a8a]/10 rounded-full blur-[120px] animate-blob" style="animation-delay:2s"></div>
     </div>
-
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
