@@ -12,6 +12,8 @@ import BlogPage from './pages/BlogPage';
 import EssayEditorPage from './pages/EssayEditorPage';
 import ArticlePage from './pages/ArticlePage';
 import { Article } from './data/articlesData';
+import { Analytics } from "@vercel/analytics/react";
+
 
 interface AppProps {
   onNavigate: (page: string) => void;
