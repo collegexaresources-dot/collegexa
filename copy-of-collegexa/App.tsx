@@ -82,15 +82,16 @@ const App: React.FC = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header activePage={currentPage} onNavigate={navigateTo} />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
-      <Footer onNavigate={navigateTo} />
-    </div>
-  );
-};
+return (
+  <div className="min-h-screen flex flex-col">
+    <Header activePage={currentPage} onNavigate={navigateTo} />
+    <main className="flex-grow">
+      {renderPage()}
+    </main>
+    <Footer onNavigate={navigateTo} />
+    <Analytics />  {/* <-- ADD THIS LINE AT THE VERY BOTTOM */}
+  </div>
+);
+
 
 export default App;
