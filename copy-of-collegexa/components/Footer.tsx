@@ -40,7 +40,7 @@ const Footer: React.FC<{ onNavigate: (p: string) => void }> = ({ onNavigate }) =
                 <div className="p-2 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg shadow-lg">
                   <CollegeLogoIcon className="h-5 w-5 text-white" />
                 </div>
-                <h1 className="text-base font-black tracking-widest text-white">COLLEGEXA</h1>
+                <h1 className="text-base font-black tracking-widest text-white">COLLEGEXCEL</h1>
               </div>
             <p className="text-sm text-purple-200/60 leading-relaxed">Empowering the next generation of leaders through innovative tools and connections.</p>
           </div>
@@ -70,7 +70,7 @@ const Footer: React.FC<{ onNavigate: (p: string) => void }> = ({ onNavigate }) =
             </form>
           </div>
         </div>
-        <div className="mt-16 pt-8 border-t border-white/5"><p className="text-[10px] font-bold uppercase tracking-widest text-purple-200/30">&copy; 2025 CollegeXa — The Student Success Standard.</p></div>
+        <div className="mt-16 pt-8 border-t border-white/5"><p className="text-[10px] font-bold uppercase tracking-widest text-purple-200/30">&copy; 2025 CollegeXcel — The Student Success Standard.</p></div>
       </div>
     </footer>
   );
