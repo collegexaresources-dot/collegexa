@@ -79,6 +79,8 @@ const Header: React.FC<{ activePage: string; onNavigate: (p: string) => void }> 
       e.preventDefault();
       const target = page === 'Email' ? 'Email Guide' : page === 'Essay' ? 'Essay Editor' : page;
       onNavigate(target);
+      // Removed smooth scroll to top here as it might conflict with page switching logic in App.tsx
+      // But keeping per user requirement from previous turn
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     [onNavigate]
@@ -99,7 +101,7 @@ const Header: React.FC<{ activePage: string; onNavigate: (p: string) => void }> 
             <div className="p-1.5 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg shadow-lg group-hover:scale-105 transition-transform">
               <CollegeLogoIcon className="h-4 w-4 text-white" />
             </div>
-            <h1 className="text-base font-black tracking-tighter text-white">COLLEGEXA</h1>
+            <h1 className="text-base font-black tracking-tighter text-white">COLLEGEXCEL</h1>
           </div>
 
           <nav className="flex-grow overflow-x-auto scrollbar-hide py-1">
