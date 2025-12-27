@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TargetIcon } from './icons/TargetIcon';
 import { RocketIcon } from './icons/RocketIcon';
@@ -27,7 +26,7 @@ const CTA: React.FC<CTAProps> = ({ onNavigate }) => {
                 Your Future?
               </h2>
               <p className="mt-4 text-base md:text-lg text-purple-200/70 max-w-2xl mx-auto">
-                Join 1,000+ ambitious students who are already building extraordinary futures with CollegeXa.
+                Join 1,000+ ambitious students who are already building extraordinary futures with CollegeXcel.
               </p>
 
               <button
