@@ -1,15 +1,14 @@
-
 import React from 'react';
 import { StarIcon } from './icons/StarIcon';
 
 const testimonialsData = [
   {
-    quote: "CollegeXa helped me find a $10,000 scholarship and connect with a Stanford professor for my research project. Game changer!",
+    quote: "CollegeXcel helped me find a $10,000 scholarship and connect with a Stanford professor for my research project. Game changer!",
     name: "Aanya Patel",
     details: "Admitted to MIT '28",
   },
   {
-    quote: "The project ideas gave me the inspiration I needed. I launched a nonprofit that's now in 5 schools. Thank you, CollegeXa!",
+    quote: "The project ideas gave me the inspiration I needed. I launched a nonprofit that's now in 5 schools. Thank you, CollegeXcel!",
     name: "Sally Carpenter",
     details: "Yale University '27",
   },
@@ -27,7 +26,7 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, details }) => (
-  <div className="bg-[#13111C]/60 backdrop-blur-md border border-purple-500/30 rounded-2xl p-8 flex flex-col h-full transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(139,92,246,0.1)] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:border-purple-400/60">
+  <div className="bg-[#13111C]/60 backdrop-blur-md border border-purple-500/30 rounded-2xl p-8 flex flex-col h-full transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(139,92,246,0.1)] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:border-purple-400/60 footer-brand-glow">
     <StarIcon className="w-6 h-6 text-yellow-400 mb-4 drop-shadow-[0_0_5px_rgba(250,204,21,0.8)]" />
     <blockquote className="text-purple-200/80 italic mb-6 flex-grow">"{quote}"</blockquote>
     <footer>
