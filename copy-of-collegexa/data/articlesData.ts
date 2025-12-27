@@ -1,4 +1,3 @@
-
 export interface Article {
   title: string;
   description: string;
@@ -20,7 +19,7 @@ export const allArticles: Article[] = [
     category: 'Application Tips',
     imageBg: 'bg-gradient-to-br from-blue-500 to-cyan-400',
     isFeatured: true,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 26, 2025',
     content: [
@@ -40,7 +39,7 @@ export const allArticles: Article[] = [
     category: 'Test Prep',
     imageBg: 'bg-gradient-to-br from-red-600 to-rose-500',
     isFeatured: false,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 22, 2025',
     content: [
@@ -58,7 +57,7 @@ export const allArticles: Article[] = [
     category: 'Financial Aid',
     imageBg: 'bg-gradient-to-br from-green-500 to-emerald-400',
     isFeatured: false,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 18, 2025',
     content: [
@@ -78,7 +77,7 @@ export const allArticles: Article[] = [
     category: 'Life in High School',
     imageBg: 'bg-gradient-to-br from-amber-600 to-yellow-500',
     isFeatured: false,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 15, 2025',
     content: [
@@ -95,7 +94,7 @@ export const allArticles: Article[] = [
     category: 'Essays',
     imageBg: 'bg-gradient-to-br from-purple-500 to-fuchsia-400',
     isFeatured: false,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 11, 2025',
     content: [
@@ -112,7 +111,7 @@ export const allArticles: Article[] = [
     category: 'Extracurriculars',
     imageBg: 'bg-gradient-to-br from-indigo-500 to-violet-400',
     isFeatured: false,
-    author: 'CollegeXa Editorial',
+    author: 'CollegeXcel Editorial',
     authorRole: 'Editorial Team',
     publishedDate: 'October 07, 2025',
     content: [
@@ -129,7 +128,7 @@ export const allArticles: Article[] = [
   category: 'Application Tips',
   imageBg: 'bg-gradient-to-br from-sky-500 to-indigo-400',
   isFeatured: false,
-  author: 'CollegeXa Editorial',
+  author: 'CollegeXcel Editorial',
   authorRole: 'Editorial Team',
   publishedDate: 'November 01, 2025',
   content: [
@@ -138,7 +137,7 @@ export const allArticles: Article[] = [
     "Use Specifics Everywhere: Vague statements fade. Concrete details stick. Saying you love computer science means very little. Saying you built a tool that helped 200 students track deadlines tells a real story. Numbers, outcomes, and results matter more than titles.",
     "Essays Are About Thinking: The best essays show how you process experiences. What changed your perspective. What question kept you up at night. What mistake forced you to rethink your approach. Reflection is what separates a good essay from a forgettable one.",
     "Recommendations Should Add New Information: A strong recommendation does not repeat your resume. It shows how you show up in a room, how you handle stress, and how you work with others. Choose recommenders who know you well enough to tell stories, not just list traits.",
-    "Apply Strategically, Not Emotionally: Build a balanced list. Have reaches, targets, and likelies you would actually attend. Prestige chasing can sink an otherwise strong cycle. Fit, programs, and outcomes matter more than name recognition."
+    "Apply Strategically, Not Emotional: Build a balanced list. Have reaches, targets, and likelies you would actually attend. Prestige chasing can sink an otherwise strong cycle. Fit, programs, and outcomes matter more than name recognition."
   ]
 },
 {
@@ -148,7 +147,7 @@ export const allArticles: Article[] = [
   category: 'Application Tips',
   imageBg: 'bg-gradient-to-br from-red-600 to-rose-500',
   isFeatured: false,
-  author: 'CollegeXa Editorial',
+  author: 'CollegeXcel Editorial',
   authorRole: 'Editorial Team',
   publishedDate: 'November 15, 2025',
   content: [
@@ -167,7 +166,7 @@ export const allArticles: Article[] = [
   category: 'Application Tips',
   imageBg: 'bg-gradient-to-br from-blue-700 to-sky-500',
   isFeatured: false,
-  author: 'CollegeXa Editorial',
+  author: 'CollegeXcel Editorial',
   authorRole: 'Editorial Team',
   publishedDate: 'November 16, 2025',
   content: [
@@ -186,7 +185,7 @@ export const allArticles: Article[] = [
   category: 'Application Tips',
   imageBg: 'bg-gradient-to-br from-slate-700 to-blue-500',
   isFeatured: false,
-  author: 'CollegeXa Editorial',
+  author: 'CollegeXcel Editorial',
   authorRole: 'Editorial Team',
   publishedDate: 'November 22, 2025',
   content: [
@@ -205,7 +204,7 @@ export const allArticles: Article[] = [
   category: 'Application Tips',
   imageBg: 'bg-gradient-to-br from-orange-600 to-amber-500',
   isFeatured: false,
-  author: 'CollegeXa Editorial',
+  author: 'CollegeXcel Editorial',
   authorRole: 'Editorial Team',
   publishedDate: 'November 26, 2025',
   content: [
